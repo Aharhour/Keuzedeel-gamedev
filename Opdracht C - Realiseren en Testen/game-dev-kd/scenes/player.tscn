@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://xahcbl23ekq8"]
+
+[ext_resource type="Script" uid="uid://6wuipbosmm5" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://242bnlkdck8l" path="res://Assets/Pico 8/Tiles/tile_0332.png" id="2_g2els"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
+radius = 30.2655
+
+[node name="Player" type="CharacterBody2D" unique_id=1021513231 groups=["player"]]
+script = ExtResource("1_g2els")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=343933460]
+texture_filter = 1
+scale = Vector2(7.5, 7.5)
+texture = ExtResource("2_g2els")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=156978713]
+shape = SubResource("CircleShape2D_g2els")

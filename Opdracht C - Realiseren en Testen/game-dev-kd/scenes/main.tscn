@@ -1,0 +1,151 @@
+[gd_scene format=3 uid="uid://hmapkiac0knr"]
+
+[ext_resource type="PackedScene" uid="uid://bieotup0wtjp6" path="res://scenes/tile_map_layer.tscn" id="1_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://xahcbl23ekq8" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://cg1q46o1vem71" path="res://scenes/car.tscn" id="3_sugp2"]
+[ext_resource type="Script" uid="uid://cia33dksedd77" path="res://scripts/restart_button.gd" id="4_jyhfs"]
+[ext_resource type="Script" uid="uid://d0d207vejf81x" path="res://scripts/aim_area.gd" id="5_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://bdlhfsilqjh10" path="res://Assets/Bijlage 2 - Logo - onder..png" id="6_tefeu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tefeu"]
+size = Vector2(141, 209)
+
+[node name="Main" type="Node2D" unique_id=471862078]
+
+[node name="TileMapLayer" parent="." unique_id=1509827832 instance=ExtResource("1_0wfyh")]
+
+[node name="Player" parent="." unique_id=1982049554 instance=ExtResource("1_o5qli")]
+position = Vector2(3, 317)
+
+[node name="Car" parent="." unique_id=160858915 instance=ExtResource("3_sugp2")]
+position = Vector2(201, 739)
+
+[node name="Car2" parent="." unique_id=1277251703 instance=ExtResource("3_sugp2")]
+position = Vector2(395, 931)
+
+[node name="Car3" parent="." unique_id=29552638 instance=ExtResource("3_sugp2")]
+position = Vector2(683, -92)
+rotation = 1.5708
+move_down = true
+
+[node name="Car4" parent="." unique_id=599561063 instance=ExtResource("3_sugp2")]
+position = Vector2(883, -273)
+rotation = 1.5708
+move_down = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=575707471]
+
+[node name="YouWinUI" type="Control" parent="CanvasLayer" unique_id=446685469]
+process_mode = 2
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="CanvasLayer/YouWinUI" unique_id=108189258]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.784314)
+
+[node name="Label" type="Label" parent="CanvasLayer/YouWinUI" unique_id=832874573]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -212.0
+offset_top = 57.0
+offset_right = 212.0
+offset_bottom = 194.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 100
+text = "You Win!"
+
+[node name="RestartButton" type="Button" parent="CanvasLayer/YouWinUI" unique_id=343669458]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.0
+offset_top = -52.0
+offset_right = 115.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 70
+text = "Restart"
+script = ExtResource("4_jyhfs")
+
+[node name="GameOverUI" type="Control" parent="CanvasLayer" unique_id=1469191061]
+process_mode = 2
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="CanvasLayer/GameOverUI" unique_id=256452874]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.784314)
+
+[node name="Label" type="Label" parent="CanvasLayer/GameOverUI" unique_id=1894878769]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -212.0
+offset_top = 57.0
+offset_right = 212.0
+offset_bottom = 194.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 100
+text = "Game Over!"
+
+[node name="RestartButton" type="Button" parent="CanvasLayer/GameOverUI" unique_id=1488916704]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.0
+offset_top = -52.0
+offset_right = 115.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 70
+text = "Restart"
+script = ExtResource("4_jyhfs")
+
+[node name="AimArea" type="Area2D" parent="." unique_id=1804386547]
+position = Vector2(1032, 321)
+script = ExtResource("5_tbgi4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AimArea" unique_id=777716614]
+position = Vector2(41.5, 0)
+shape = SubResource("RectangleShape2D_tefeu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1100813177]
+position = Vector2(40, 39.999996)
+scale = Vector2(0.04063906, 0.038638584)
+texture = ExtResource("6_tefeu")
+
+[connection signal="pressed" from="CanvasLayer/YouWinUI/RestartButton" to="CanvasLayer/YouWinUI/RestartButton" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/GameOverUI/RestartButton" to="CanvasLayer/GameOverUI/RestartButton" method="_on_pressed"]
+[connection signal="body_entered" from="AimArea" to="AimArea" method="_on_body_entered"]

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cg1q46o1vem71"]
+
+[ext_resource type="Script" uid="uid://bc2711xlcrnf6" path="res://scripts/car.gd" id="1_50v30"]
+[ext_resource type="Texture2D" uid="uid://b2cvqoqop0m16" path="res://Assets/Bijlage 2 - Logo zonder text.png" id="2_qt2eu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_50v30"]
+size = Vector2(98, 58)
+
+[node name="Car" type="Area2D" unique_id=1855197551]
+rotation = 4.712389
+script = ExtResource("1_50v30")
+
+[node name="Sprite" type="Node2D" parent="." unique_id=2011418820]
+scale = Vector2(7, 7)
+
+[node name="Tile0277" type="Sprite2D" parent="Sprite" unique_id=784613364]
+texture_filter = 1
+position = Vector2(-0.25154954, -0.16877812)
+rotation = 0.8115373
+scale = Vector2(0.0061989464, 0.006241872)
+texture = ExtResource("2_qt2eu")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=265930303]
+position = Vector2(-23, 0)
+rect = Rect2(-20.263153, -29.1268, 97.4402, 57.320587)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1733314856]
+position = Vector2(5, 0)
+shape = SubResource("RectangleShape2D_50v30")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
