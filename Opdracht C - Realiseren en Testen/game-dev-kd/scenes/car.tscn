@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b2cvqoqop0m16" path="res://Assets/Bijlage 2 - Logo zonder text.png" id="2_qt2eu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_50v30"]
-size = Vector2(98, 58)
+size = Vector2(78, 44)
 
 [node name="Car" type="Area2D" unique_id=1855197551]
 rotation = 4.712389

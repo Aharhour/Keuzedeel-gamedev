@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://242bnlkdck8l" path="res://Assets/Pico 8/Tiles/tile_0332.png" id="2_g2els"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
-radius = 30.2655
+radius = 22.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1021513231 groups=["player"]]
 script = ExtResource("1_g2els")

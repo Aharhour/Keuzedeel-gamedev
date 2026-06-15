@@ -6,11 +6,14 @@
 [ext_resource type="Script" uid="uid://cia33dksedd77" path="res://scripts/restart_button.gd" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://d0d207vejf81x" path="res://scripts/aim_area.gd" id="5_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://bdlhfsilqjh10" path="res://Assets/Bijlage 2 - Logo - onder..png" id="6_tefeu"]
+[ext_resource type="Script" uid="uid://2r6kmax4xqqq" path="res://scripts/main.gd" id="7_main0"]
+[ext_resource type="PackedScene" uid="uid://bc3iw7c3o4m3y" path="res://scenes/coin.tscn" id="8_coin0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tefeu"]
 size = Vector2(141, 209)
 
 [node name="Main" type="Node2D" unique_id=471862078]
+script = ExtResource("7_main0")
 
 [node name="TileMapLayer" parent="." unique_id=1509827832 instance=ExtResource("1_0wfyh")]
 
@@ -19,9 +22,11 @@ position = Vector2(3, 317)
 
 [node name="Car" parent="." unique_id=160858915 instance=ExtResource("3_sugp2")]
 position = Vector2(201, 739)
+SPEED = 250.0
 
 [node name="Car2" parent="." unique_id=1277251703 instance=ExtResource("3_sugp2")]
 position = Vector2(395, 931)
+SPEED = 340.0
 
 [node name="Car3" parent="." unique_id=29552638 instance=ExtResource("3_sugp2")]
 position = Vector2(683, -92)
@@ -31,9 +36,51 @@ move_down = true
 [node name="Car4" parent="." unique_id=599561063 instance=ExtResource("3_sugp2")]
 position = Vector2(883, -273)
 rotation = 1.5708
+SPEED = 390.0
 move_down = true
 
+[node name="Coin" parent="." unique_id=1870212261 instance=ExtResource("8_coin0")]
+position = Vector2(201, 319)
+
+[node name="Coin2" parent="." unique_id=1443080588 instance=ExtResource("8_coin0")]
+position = Vector2(399, 321)
+
+[node name="Coin3" parent="." unique_id=117848331 instance=ExtResource("8_coin0")]
+position = Vector2(532, 320)
+
+[node name="Coin4" parent="." unique_id=1621147954 instance=ExtResource("8_coin0")]
+position = Vector2(680, 318)
+
+[node name="Coin5" parent="." unique_id=946351159 instance=ExtResource("8_coin0")]
+position = Vector2(782, 321)
+
+[node name="Coin6" parent="." unique_id=493067842 instance=ExtResource("8_coin0")]
+position = Vector2(882, 321)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=575707471]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=987264216]
+offset_left = 931.0
+offset_top = 8.0
+offset_right = 1078.0
+offset_bottom = 54.0
+theme_override_colors/font_color = Color(1, 0.84, 0.2, 1)
+theme_override_colors/font_outline_color = Color(0.15, 0.1, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 30
+text = "Munten: 0"
+
+[node name="HintLabel" type="Label" parent="CanvasLayer" unique_id=1228503841]
+offset_left = 24.0
+offset_top = 600.0
+offset_right = 1128.0
+offset_bottom = 640.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 26
+text = "Beweeg met A / D of de pijltjes  ·  pak de munten en haal de overkant!"
+horizontal_alignment = 1
 
 [node name="YouWinUI" type="Control" parent="CanvasLayer" unique_id=446685469]
 process_mode = 2

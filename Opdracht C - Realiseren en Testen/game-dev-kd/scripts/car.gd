@@ -1,6 +1,8 @@
 extends Area2D
 
-var SPEED = 300.0
+# Bevinding 5 (test Akshay): per auto instelbaar, zodat de auto's verschillend
+# snel rijden en het verkeer minder voorspelbaar wordt.
+@export var SPEED: float = 300.0
 
 @export var move_down: bool
 
