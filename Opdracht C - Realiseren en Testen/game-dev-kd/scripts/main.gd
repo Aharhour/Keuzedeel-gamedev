@@ -1,7 +1,5 @@
 extends Node2D
 
-# Houdt het aantal opgepakte munten bij en werkt het muntenlabel bij.
-
 var coins := 0
 
 @onready var coin_label: Label = $CanvasLayer/Label
